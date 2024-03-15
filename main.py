@@ -10,7 +10,7 @@ def load_data(file_path):
     df = pd.read_csv(file_path)
     return df
 
-# 실제 한글 폰트 파일의 경로로 변경.
+# 실제 한글 폰트 파일의 경로로 변경
 font_path = "c:\WINDOWS\Fonts\HANCOM GOTHIC BOLD.TTF"
 fontprop = fm.FontProperties(fname=font_path, size=15)
 
@@ -31,7 +31,7 @@ def main():
     st.title('🔍 우리나라 물가 데이터 대시보드')
     st.write("통계청 자료를 기반으로 작성되었습니다.")
     
-    # 탭 설정
+    # 탭 설정 - 스타일 변동
     tab = st.sidebar.radio("목록", ("주요 소비재 가격 변동", "소비자 물가 지수 추이",)) # 다른 기능을 추가하려면 여기에 추가
     
     # 주요 소비재 가격 변동 탭 선택 시
@@ -69,6 +69,7 @@ def main():
         st.pyplot()
 
 
+
     # 주요 소비재 가격 변동 탭 선택 시
     if tab == "소비자 물가 지수 추이":
         # CSV 파일 로드
@@ -103,6 +104,7 @@ def main():
         # 각 행에 대한 그래프 추가
         #for column in df_transposed.columns:
             #fig.add_trace(go.Scatter(x=df_transposed.index, y=df_transposed[column], mode='lines+markers', name=column))
+        
 
         # '전월대비', '전년동월대비' 각각에 대한 선 그래프 추가
         for column in df_transposed.columns:
